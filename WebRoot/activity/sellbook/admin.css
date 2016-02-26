@@ -1,0 +1,221 @@
+@CHARSET "UTF-8";
+
+.sba_top{
+	float:left;
+	width:100%;
+	
+}
+
+#sendBox,#updateBox{
+	display:none;
+	position:absolute;
+	top:20px;
+	width:516px;
+	background:white;
+	border:2px solid #e4e3e3;
+	border-radius:10px;
+	z-index:105;
+}
+.sendBox_nav{
+	float:left;
+	margin-top:10px;
+	width:100%;
+	line-height:20px;
+}
+.sendBox_nav span{
+	float:left;
+	margin-left:20px;
+	font-size:16px;
+	text-align:left;
+}
+.send_obj{
+	float:left;
+	margin-left:15px;
+	line-height:22px;
+	width:330px;
+	height:22px;
+	border-radius:6px;
+	border:1px solid #e6e6e6;
+	padding-left:10px;
+}
+.text{
+	float:left;
+	margin-top:1px;
+	margin-left:2px;
+	line-height:22px;
+	width:150px;
+	height:20px;
+	font-size:13px;
+	border-radius:6px;
+	border:1px solid #e6e6e6;
+}
+
+.long_text{
+	float:left;
+	margin-top:1px;
+	margin-left:2px;
+	line-height:22px;
+	width:200px;
+	height:20px;
+	border-radius:6px;
+	border:1px solid #e6e6e6;
+}
+
+.mi_text{
+	width:80px;
+	height:20px;
+	margin-top:1px;
+	line-height:18px;
+	margin-left:2px;
+	border-radius:6px;
+	border:1px solid #e6e6e6;
+}
+
+.mi_text{
+	float:left;
+}
+.info_text{
+	float:left;
+	margin-top:15px;
+	margin-left:50px;
+	width:450px;
+}
+.info_img{
+	float:left;
+	width:21px;
+}
+.info_img img{
+	float:left;
+	max-width:20px;
+}
+
+.tab{
+	float:left;
+	width:80px;
+	margin-left:2px;
+	height:20px;
+	line-height:23px;
+	font-size:16px;
+	text-align:left;
+}
+
+.cancel{
+	display:none;
+	cursor:pointer;
+	float:left;
+	color:#e68303;
+	font-size:16px;
+	font-weight:500;
+}
+
+.pic_block{
+	float:left;
+	width:100%;
+}
+.pic{
+	float:left;
+	margin-left:15px;
+	margin-top:10px;
+	width:150px;
+	height:150px;
+	line-height:150px;
+	text-align:center;
+	position:relative;
+	background:url(../../web/image/base/pic_border.png) no-repeat;
+}
+.show_img{
+	table-layout:fixed;
+	vertical-align:middle;
+    _width:expression(this.width> 145 ? "145px":(this.width+"px"));
+  	_height:expression(this.height> 145 ?"145px":(this.width+"px"));
+  	max-width:145px;
+  	max-height:145px;
+}
+
+#idle_upload_input{
+	opacity:0;
+	filter:alpha(opacity=0);
+	font-size:20px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor:pointer;
+}
+.upb{
+	float:left;
+	margin-left:3px;
+	margin-top:4px;
+	width:145px;
+	height:145px;
+	background:url(../../web/image/base/pic_default.png) no-repeat;
+}
+.upc{
+	float:left;
+	margin-left:3px;
+	margin-top:3px;
+	width:145px;
+	height:145px;
+	background:url(../../web/image/base/g_uploading.gif) center center no-repeat;
+	display:none;
+}
+.more_info_text{
+	float:left;
+	margin-top:5px;
+	margin-left:50px;
+	width:340px;
+	height:60px;
+	border:1px solid #e6e6e6;
+	font-size:14px;
+	resize:none;
+	border-radius:5px;
+}
+
+
+/*预定表*/
+#sba_booksinfo_tb,#sba_booking_tb{
+	float:left;
+	width:920px;
+	border-collapse: collapse;
+	font-size:14px;
+	padding:0px;
+	margin:0px;
+	table-layout:fixed;
+	border:0px;
+	margin-top:10px;
+	table-layout:fixed;
+	text-overflow:clip;
+	WORD-BREAK: break-all;
+}
+#sba_booksinfo_tb tr,#sba_booking_tb tr{
+	min-height:22px;
+	line-height:22px;
+}
+#sba_booksinfo_tb tr:nth-child(odd) ,#sba_booking_tb tr:nth-child(odd) {
+	background:#f8f8f8;
+}
+#sba_booksinfo_tb tr td,#sba_booking_tb tr td{
+	border:1px outset #d8d8d8;
+}
+
+.bi_tb_bookid,.b_tb_bookid,.b_tb_id,.bi_tb_id,.b_tb_count{
+	width:50px;
+}
+.bi_tb_tiny{
+	width:150px;
+	padding:5px;
+}
+.bi_tb_name,.b_tb_name,.b_tb_place{
+	width:140px;
+}
+.b_tb_remark{
+	width:200px;
+}
+.bi_tb_price,.b_tb_price,.bi_tb_update,.b_tb_complete{
+	width:70px;
+}
+.b_tb_olddegree,.bi_tb_olddegree,.b_tb_get,.bi_tb_stock{
+	width:60px;
+}
+.b_tb_customer,.bi_tb_type{
+	width:90px;
+}

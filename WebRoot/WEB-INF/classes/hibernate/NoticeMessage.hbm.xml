@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="model.NoticeMessage" table="noticeMessage">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="userid" generated="never" lazy="false" name="userid"
+   not-null="true" type="long"/>
+  <property column="senderid" generated="never" lazy="false"
+   name="senderid" not-null="true" type="long"/>
+  <property column="content" generated="never" lazy="false"
+   name="content" not-null="true" type="string"/>
+  <property column="sendTime" generated="never" lazy="false"
+   length="500" name="sendTime" not-null="true" type="java.util.Date"/>
+   <property column="noticeShare" generated="never" lazy="false"
+   name="noticeShare"  type="string"/>
+    <property column="noticeShareId" generated="never" lazy="false"
+   name="noticeShareId"  type="long"/>
+    <property column="noticeType" generated="never" lazy="false"
+   name="noticeType"  type="string"/>
+    <property column="additionalMessage" generated="never" lazy="false"
+   name="additionalMessage"  type="string"/>
+   <property column="isShareType" generated="never" lazy="false"
+   name="isShareType"  type="string" length = "1"/>
+ </class>
+</hibernate-mapping>

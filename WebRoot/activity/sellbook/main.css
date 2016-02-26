@@ -1,0 +1,393 @@
+@CHARSET "UTF-8";
+.sba_text,.sb_text
+{
+	height:25px;
+	border-radius:5px;
+	border:1px solid #d8d8d8;
+}
+#sellbook_top{
+	float:left;
+	width:100%;
+}
+
+#sellbook_avatar_box{
+	float:left;
+	margin-top:10px;
+	margin-left:30px;
+	width:70px;
+	height:70px;
+	background:#89b403;
+}
+
+#sellbook_introduce{
+	float:left;
+	width:450px;
+	margin-left:30px;
+	margin-top:10px;
+}
+
+#sellbook_introduce_main{
+	float:left;
+	width:440px;
+	background:#89b403;
+}
+
+#sellbook_sellplace{
+	float:left;
+	line-height:25px;
+	margin-left:10px;
+	width:350px;
+}
+
+#sellbook_info{
+	float:left;
+	margin-top:10px;
+	width:450px;
+	margin-left:20px;
+	text-align:left;
+}
+
+#sellbook_info span{
+	float:left;
+	margin:6px;
+	margin-top:0px;
+	font-size:14px;
+	text-align:left;
+}
+
+#sellbook_show{
+	float:left;
+	width:940px;
+	margin-left:20px;
+	margin-top:20px;
+}
+#sellbook_notes{
+	width:100%;
+}
+
+#sellbook_nav{
+	float:left;
+	width:100%;
+	height:40px;
+	line-height:41px;
+	margin-top:10px;
+}
+
+#sellbook_nav_select{
+	float:left;
+	width:100%;
+	line-height:35px;
+	margin-top:5px;
+}
+.sb_nav_select_block{
+	float:left;
+	margin-left:30px;
+	line-height:35px;
+}
+.sb_nav_select_block span{
+	float:left;
+}
+.sb_nav_selected{
+	float:left;
+	width:100px;
+	margin-left:5px;
+	margin-top:8px;
+}
+
+/*售书便签*/
+.sbn_main{
+	border-radius:5px;
+	width:210px;
+	height:305px;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=#e4e4e4, endColorstr=#a8a8a8);
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+	-webkit-transition:border linear 0.2s,box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	position:relative;
+	background: #c8c8c8; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#e4e4e4), to(#a8a8a8));
+	background: -moz-linear-gradient(top,  #e4e4e4,  #a8a8a8);
+}
+.sbn_main:hover{
+	box-shadow:0px 0px 15px #d9d9d9;
+}
+.sbn_bookname{
+	float:left;
+	width:200px;
+	height:25px;
+	line-height:26px;
+	margin-top:8px;
+	margin-left:5px;
+	background:white;
+	border-radius:3px;
+	font-size:14px;
+	cursor:pointer;
+}
+.sbn_bookname:hover{
+	color:#89b403;
+}
+.sbn_picblock{
+	float: left; 
+	width: 200px; 
+	height: 200px; 
+	margin-left: 5px; 
+	margin-top: 5px; 
+	cursor: pointer; 
+	line-height: 200px; 
+	text-align: center; 
+	position: relative; 
+	background-color: transparent; 
+	background-position: initial initial; 
+	background-repeat: initial initial;
+}
+.sbn_bookinfo{
+	float:left;
+	margin-left:5px;
+	margin-top:10px;
+	width:145px;
+}
+
+.sbn_bookinfo li{
+	float:left;
+	width:100%;
+	height:24px;
+	text-align:left;
+	/*font-style: italic;*/
+}
+.sbn_bookinfo li label{
+	font-size:15px;
+	line-height:20px;
+	float:left;
+	padding-left:3px;
+	padding-right:3px;
+	height:18px;
+	background:#ffffff;
+	border-radius:3px;
+	font-size:14px;
+	line-height:19px;
+}
+.sbn_bookinfo li .sbn_sel{
+	float:left;
+	height:18px;
+	background:#89b403;
+	border-radius:3px;
+	font-size:14px;
+	line-height:19px;
+}
+.sbn_bookinfo li span{
+	padding-left:3px;
+	padding-right:3px;
+	float:left;
+	color:#ffffff;
+}
+
+/*详情*/
+
+#book_details{
+	display:none;
+	z-index:150;
+	position:absolute;
+	width:980px;
+	min-height:670px;
+	left:0px;
+	top:40px;
+	font-size:25px;
+	background: #c8c8c8; 
+	background: -webkit-gradient(linear, left top, left bottom, from(#e4e4e4), to(#a8a8a8));
+	background: -moz-linear-gradient(top,  #e4e4e4,  #a8a8a8);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=#e4e4e4, endColorstr=#a8a8a8);
+	-webkit-transition:border linear 0.2s,box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+#book_details_top{
+	float:left;
+	margin-top:10px;
+	width:100%;	
+	height:50px;
+	line-height:50px;
+}
+#book_details_top span{
+	float:left;
+	margin-left:30px;
+}
+
+#book_details_main{
+	float:left;
+	width:100%;
+	margin-top:20px;
+}
+#book_details_info{
+	float:left;
+	width:360px;
+	overflow:hidden;
+}
+#book_details_info ul{
+	float:left;
+	margin-left:30px;
+}
+#book_details_info ul li{
+	float:left;
+	width:100%;
+	min-height:60px;
+	font-size:20px;
+	line-height:65px;
+	text-align:left;
+}
+#book_details_info ul li img{
+	float:left;
+	
+}
+#book_details_info ul li span{
+	float:left;
+	margin-left:10px;
+}
+
+#book_detail_img{
+	float:left;
+	width:580px;
+	height:560px;
+	border-radius:10px;
+	background:#89b403;
+}
+#book_detail_img_show{
+	float:left;
+	width:560px;
+	margin-left:10px;
+	height:510px;
+	overflow:hidden;
+	background:white;
+	position:relative;	
+}
+#book_detail_img_show ul{
+	height:510px;
+	position:absolute;	
+}
+
+#book_detail_img_show ul li{
+	position:absolute;	
+}
+
+.details_info_list{
+	float:left;
+	width:160px;
+	text-align:left;
+}
+
+
+#booking_box{
+	position:absolute;
+	display:none;
+	width:480px;
+	background:white;
+	border-radius:10px;
+	border:2px solid #c1c1c1;
+	z-index:250;
+	
+}
+
+.sb_bar{
+	float:left;
+	width:100%;
+	height:40px;
+	line-height:40px;
+	background:url(image/sb_bar.jpg);
+	border-radius:0px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+.sb_bar_btn{
+	float:left;
+	width:130px;
+	cursor:pointer;
+	color:white;
+}
+.sb_bar_on{
+	height:40px;
+	background:url(image/sb_bar_on.png);
+	border-radius:0px;
+	color:#89b043;
+}
+
+#sba_booksinfo_tb,#sba_booking_tb{
+	float:left;
+	width:920px;
+	border-collapse: collapse;
+	font-size:14px;
+	padding:0px;
+	margin:0px;
+	table-layout:fixed;
+	border:0px;
+	margin-top:10px;
+	table-layout:fixed;
+	text-overflow:clip;
+	WORD-BREAK: break-all;
+}
+#sba_booksinfo_tb tr,#sba_booking_tb tr{
+	min-height:22px;
+	line-height:22px;
+}
+#sba_booksinfo_tb tr:nth-child(odd) ,#sba_booking_tb tr:nth-child(odd) {
+	background:#f8f8f8;
+}
+#sba_booksinfo_tb tr td,#sba_booking_tb tr td{
+	border:1px outset #d8d8d8;
+}
+
+.b_tb_bookid,.b_tb_id,.b_tb_count{
+	width:50px;
+}
+.b_tb_tiny{
+	width:140px;
+	padding:5px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.b_tb_name{
+	width:160px;
+}
+.b_tb_price,.b_tb_complete{
+	width:60px;
+}
+.b_tb_get{
+	width:80px;
+}
+.b_tb_place{
+	width:120px;
+}
+
+.sb_button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #f7ffe8;
+	border: solid 1px #74933e;
+	background: #8aad4b;
+	background: -webkit-gradient(linear, left top, left bottom, from(#98c14e), to(#83a841));
+	background: -moz-linear-gradient(top,  #98c14e,  #f83a841);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#98c14e', endColorstr='#83a841');
+}
+.sb_button:hover {
+	text-decoration: none;
+	background: #728f3e;
+	background: -webkit-gradient(linear, left top, left bottom, from(#91b452), to(#728f3e));
+	background: -moz-linear-gradient(top,  #91b452,  #728f3e);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#91b452', endColorstr='#728f3e');
+}
+.sb_button_do{
+	background:#5e7534;
+	cursor:default;
+}
+.sb_button_do:hover{
+	background:#5e7534;
+	cursor:default;
+}

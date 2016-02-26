@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name = "model.Needs" table = "needs">
+		<id name = "id" type = "long">
+			<generator class="native"></generator>
+		</id>
+		<property name="userid" type = "long" not-null = "true"></property>
+		<property name="type" type = "string" not-null = "true">
+		</property>
+		<property name="needstype_1" type = "string" ></property>
+		<property name="needstype_2" type = "string" ></property>
+		<property name="needstype_3" type = "string" ></property>
+		<property name="needs" type = "string" not-null = "true"></property>
+		<property name="content" type = "string"></property>
+		<property name="reward" type = "integer" not-null = "true"></property>
+		<property name="obj_qq" type = "string"></property>
+		<property name="obj_phone" type = "string"></property>
+		<property name="price" type = "string"></property>
+		<property name="totaltime" type = "string"></property>
+		<property name="old_degree" type = "string"></property>
+		<property name="is_shared" type = "string" not-null = "true"></property>
+		<property name="add_time" type = "java.util.Date" not-null = "true"></property>
+		<property name="show_inhome" type = "string" ></property>
+		<property name="lookedtimes" type = "integer"></property>
+		<property name="requiredtimes" type = "integer"></property>
+		<property name="replytimes" type = "integer"></property>
+		<property name="comment_size" type = "integer"></property>
+		<property name="savetime" type = "integer"></property>
+		<property name="contactperson" type = "string"></property>
+		<property name="show_privacy" type = "string"></property>
+		<property name="hotspot" type = "integer"></property>
+		<set name = "circle" table = "needs_circle" >
+			<key column="needsid"/>
+			<many-to-many class = "model.Circle" column = "circleid"/>
+		</set>
+	</class>
+</hibernate-mapping>

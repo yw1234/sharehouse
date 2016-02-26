@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<package name = "share.message" extends = "share-default" namespace = "/message">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor name = "characterInterceptor" class = "action.interceptor.IllegalCharacterIntercptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "characterInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 消息处理 -->
+		<action name = "bookInfo" class = "action.message.RequestMessageAction" method = "getBookInfo">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "shareConfirm" class = "action.message.RequestMessageAction" method = "shareConfirm">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "hideCommented" class = "action.message.CommentMessageAction" method = "hideCommentedMessage">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*Request" class = "action.message.RequestMessageAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*Comment" class = "action.message.CommentMessageAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*At" class = "action.message.AtMessageAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*Notice" class = "action.message.NoticeMessageAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*Private" class = "action.message.PrivateMessageAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "*Order" class = "action.message.OrderAction" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,264 @@
+@CHARSET "UTF-8";
+select{
+	width:80px;
+	height:20px;
+	margin-top:1px;
+	line-height:18px;
+	float:left;
+	margin-left:2px;
+}
+.sendBox_main{
+	display:none;
+	position:absolute;
+	top:30px;
+	width:516px;
+	background:white;
+	border:2px solid #e4e3e3;
+	border-radius:5px;
+	z-index:104;
+	margin-bottom:30px;
+}
+.sendBox_nav{
+	float:left;
+	margin-top:10px;
+	width:100%;
+	line-height:20px;
+}
+.sendBox_nav span{
+	float:left;
+	margin-left:20px;
+	font-size:16px;
+	text-align:left;
+}
+.send_obj{
+	float:left;
+	margin-left:5px;
+	line-height:22px;
+	width:300px;
+	height:22px;
+	border-radius:6px;
+	border:1px solid #e6e6e6;
+	padding-left:10px;
+}
+.info_text{
+	float:left;
+	margin-top:15px;
+	margin-left:50px;
+	width:450px;
+}
+.info_img{
+	float:left;
+	width:21px;
+	height:20px;
+}
+
+.tab{
+	float:left;
+	width:80px;
+	margin-left:2px;
+	height:20px;
+	line-height:23px;
+	font-size:16px;
+	text-align:left;
+}
+
+.cancel{
+	display:none;
+	cursor:pointer;
+	float:left;
+	color:#e68303;
+	font-size:16px;
+	font-weight:500;
+}
+
+.pic_block{
+	float:left;
+	width:100%;
+}
+.pic{
+	float:left;
+	margin-left:15px;
+	margin-top:10px;
+	width:150px;
+	height:150px;
+	line-height:150px;
+	position:relative;
+	background:url(../../../../web/image/base/pic_border.png) no-repeat;
+}
+.show_img{
+	table-layout:fixed;
+	vertical-align:middle;
+    _width:expression(this.width> 145 ? "145px":(this.width+"px"));
+  	_height:expression(this.height> 140 ?"140px":(this.width+"px"));
+  	max-width:145px;
+  	max-height:140px;
+}
+
+#idle_upload_input{
+	opacity:0;
+	filter:alpha(opacity=0);
+	font-size:20px;
+	position:absolute;
+	top:0;
+	right:0;
+	cursor:pointer;
+}
+
+.upb{
+	float:left;
+	margin-left:3px;
+	margin-top:4px;
+	width:145px;
+	height:145px;
+	line-height:142px;
+	cursor:pointer;
+	background:url(../../../../web/image/base/pic_default.png) no-repeat;
+}
+.upc{
+	float:left;
+	margin-left:3px;
+	margin-top:3px;
+	width:145px;
+	height:145px;
+	line-height:142px;
+	background:url(../../../../web/image/base/g_uploading.gif) center center no-repeat;
+	display:none;
+}
+.more_info_text{
+	float:left;
+	margin-top:5px;
+	margin-left:50px;
+	width:340px;
+	height:55px;
+	border:1px solid #e6e6e6;
+	font-size:14px;
+	resize:none;
+	border-radius:5px;
+	overflow-y:auto;
+}
+
+#savetime_div{
+	float:left;
+	line-height:23px;
+	width:218px;
+	height:20px;
+	text-align:left;
+}
+#savetime{
+	width:80px;
+}
+.sell_web_link{
+	float:left;
+	margin-left:5px;
+	line-height:27px;
+	color:#e68303;
+	font-size:13px;
+}
+.tip{
+	float:left;
+	margin-left:20px;
+	height:20px;
+	line-height:20px;
+}
+
+/*sendToBox*/
+#sendto_box{
+	position:absolute;
+	display:none;
+	width:700px;
+	top:60px;
+	left:200px;
+	z-index:120;
+	box-shadow:0px 0px 20px #919191;
+	border-radius:10px;
+}
+#st_top{
+	float:left;
+	width:696px;
+	height:30px;
+	background:white;
+	border-radius:10px 10px 0px 0px;
+	cursor:move;
+	border-left:2px solid #e4e3e3;
+	border-top:2px solid #e4e3e3;
+	border-right:2px solid #e4e3e3;
+}
+#st_main{
+	border-radius:0px 0px 10px 10px;
+	float:left;
+	width:696px;
+	height:393px;
+	border-left:2px solid #e4e3e3;
+	border-bottom:2px solid #e4e3e3;
+	border-right:2px solid #e4e3e3;
+	background:white;
+	overflow-x:hidden;
+}
+#st_circle_block{
+	float:left;
+	margin-left:0px;
+	width:696px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	position:relative;
+}
+#st_circle{
+	float:left;
+	margin-left:0px;
+	width:4176px;
+	height:343px;
+}
+#st_op{
+	float:left;
+	width:696px;
+	height:30px;
+}
+.st_btn{
+	width:70px;
+	height:25px;
+	float:right;
+	margin-right:15px;
+	margin-top:15px;
+	background:#e68303;
+	line-height:25px;
+	color:#fbfbfb;
+	font-size:15px;
+	cursor:pointer;
+	border-radius:3px;
+}
+.selbelonged_btn{
+	position:absolute;
+	width:90px;
+	height:18px;
+	bottom:5px;
+	z-index:85;
+	left:5px;
+	filter:alpha(opacity=50); 
+	opacity:0.5; 
+	cursor:pointer;
+}
+
+#show_result{
+	display:none;
+	margin-top:15px;
+	float:left;
+	width:670px;
+}
+.show_result_span{
+	float:left;
+	text-align:left;
+	font-size:16px;
+	font-family:'黑体',Arial;
+	margin-left:5px;
+}
+
+#search_circle_input{
+	float:left;
+	margin-left:20px;
+	line-height:20px;
+	border:0px;
+	width:180px;
+	height:25px;
+	font-size:14px;
+	background:url(../../../../web/image/index/index_text.png) center center no-repeat;
+}

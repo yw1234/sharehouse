@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name = "object">
+	<type id = "00000" name = "学习">
+		<sub-type id= "00001" name = "书籍"/>
+		<sub-type id= "00002" name = "笔"/>
+		<sub-type id= "00003" name = "纸本"/>
+		<sub-type id= "00004" name = "文具盒"/>
+		<sub-type id= "00005" name = "书包"/>
+		<sub-type id= "00006" name = "学习资料"/>
+		<sub-type id= "00007" name = "其他"/>
+	</type>
+	<type id = "10000" name = "数码产品">
+		<sub-type id= "10001" name = "手机"/>
+		<sub-type id= "10002" name = "笔记本电脑"/>
+		<sub-type id= "10003" name = "平板电脑"/>
+		<sub-type id= "10004" name = "台式机"/>
+		<sub-type id= "10008" name = "游戏机"/>
+		<sub-type id= "10005" name = "网络设备"/>
+		<sub-type id= "10006" name = "存储设备"/>
+		<sub-type id= "10007" name = "相机及配件"/>
+		<sub-type id= "10009" name = "耳机或耳麦"/>
+		<sub-type id= "10010" name = "音响"/>
+		<sub-type id= "10010" name = "周边产品"/>
+		<sub-type id= "10012" name = "其他"/>
+	</type>
+	<type id = "20000" name = "体育用品">
+		<sub-type id= "20001" name = "球"/>
+		<sub-type id= "20002" name = "球拍"/>
+		<sub-type id= "20003" name = "轮滑"/>
+		<sub-type id= "20004" name = "泳具"/>
+		<sub-type id= "20005" name = "健身器械"/>
+		<sub-type id= "20006" name = "其他"/>
+	</type>
+	<type id = "30000" name = "服装">
+		<sub-type id= "30001" name = "衣服"/>
+		<sub-type id= "30002" name = "裤子"/>
+		<sub-type id= "30003" name = "鞋"/>
+		<sub-type id= "30004" name = "帽子"/>
+		<sub-type id= "30005" name = "其他"/>
+	</type>
+	<type id = "40000" name = "女生">
+		<sub-type id= "40002" name = "包包"/>
+		<sub-type id= "40003" name = "配饰"/>
+		<sub-type id= "40004" name = "美容用品"/>
+		<sub-type id= "40005" name = "卫生用品"/>
+		<sub-type id= "40006" name = "其他"/>
+	</type>
+	<type id = "50000" name = "家居">
+		<sub-type id= "50001" name = "台灯"/>
+		<sub-type id= "50002" name = "风扇"/>
+		<sub-type id= "50003" name = "饮水机"/>
+		<sub-type id= "50004" name = "微波炉"/>
+		<sub-type id= "50005" name = "家具"/>
+		<sub-type id= "50006" name = "小家电"/>
+		<sub-type id= "50007" name = "其他"/>
+	</type>
+	<type id = "60000" name = "生活相关">
+		<sub-type id= "60001" name = "食品"/>
+		<sub-type id= "60002" name = "饮料"/>
+		<sub-type id= "60007" name = "表"/>
+		<sub-type id= "60003" name = "卡、券、票"/>
+		<sub-type id= "60006" name = "自行车"/>
+		<sub-type id= "60008" name = "玩具"/>
+		<sub-type id= "60009" name = "虚拟物品"/>
+		<sub-type id= "60010" name = "其他"/>
+	</type>
+	<type id = "70000" name = "其他">
+		<sub-type id= "70001" name = "妹子"/>
+		<sub-type id= "70002" name = "帅哥"/>
+		<sub-type id= "70003" name = "其他"/>
+	</type>
+</object>

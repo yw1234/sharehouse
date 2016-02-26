@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<package name = "share.details.goods" extends = "share-default" namespace = "/details/goods">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 物品链接 goods-->
+		<action name = "*" class = "action.PageInit" method = "details">
+			<result name = "success">/WEB-INF/web/home/detail/idleDetailsPage.jsp</result>
+			<result name = "error">/WEB-INF/web/home/detail/idleDetailsError.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+</struts>

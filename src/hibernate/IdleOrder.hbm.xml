@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="model.IdleOrder" table="idleOrder">
+ 		<id name = "id" type = "long">
+			<generator class="native"></generator>
+		</id>
+		<property name="idleid" type = "long" not-null="true">
+		</property>
+		<property name="seller_uid" type = "long" not-null="true">
+		</property>
+		<property name="buyer_uid" type = "long" not-null="true">
+		</property>
+		<property name="idle" type = "string" length = "200">
+		</property>
+		<property name="shareType" type = "string" length = "20">
+		</property>
+		<property name="price" type = "integer">
+		</property>
+		<property name="lendTimeLong" type = "string">
+		</property>
+		<property name="fare" type = "integer">
+		</property>
+		<property name="add_time" type = "java.util.Date" not-null="true">
+		</property>
+		<property name="deliveryType" type = "string" length = "100">
+		</property>
+		<property name="deliveryLocation" type = "string">
+		</property>
+		<property name="pickupLocation" type = "string">
+		</property>
+		<property name="hub_flag" type = "string" length = "1">
+		</property>
+		<property name="isComplete" type = "string" length = "1">
+		</property>
+		<property name="remark" type = "string" length = "200">
+		</property>
+		<one-to-one name="logistic" class = "model.Logistic" cascade = "delete" lazy = "false" />			
+ </class>
+</hibernate-mapping>

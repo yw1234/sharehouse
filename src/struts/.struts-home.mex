@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="share.home" location="10,10" size="525,980">
+    <action name="user" location="310,547" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mypage.jsp" />
+      </result>
+    </action>
+    <action name="message" location="310,722" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="message.jsp" />
+      </result>
+    </action>
+    <action name="result" location="310,887" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="result.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="searchfriends.jsp" />
+      </result>
+    </action>
+    <action name="exit*" location="65,897" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="exit.jsp" />
+      </result>
+    </action>
+    <action name="send*" location="65,373" size="150,40" />
+    <action name="upload*" location="310,372" size="150,41">
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="exception.jsp" />
+      </result>
+    </action>
+    <action name="delete*" location="310,268" size="150,40" />
+    <action name="get*" location="310,163" size="150,40" />
+    <action name="add*" location="65,163" size="150,40" />
+    <action name="update*" location="65,57" size="150,41">
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="exception.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="mypage.jsp" path="/WEB-INF/web/home/mypage.jsp" location="573,520" size="150,55" />
+  <webResource name="message.jsp" path="/WEB-INF/web/home/message.jsp" location="573,695" size="150,55" />
+  <webResource name="result.jsp" path="/WEB-INF/web/home/result.jsp" location="304,1045" size="150,55" />
+  <webResource name="searchfriends.jsp" path="/WEB-INF/web/home/searchfriends.jsp" location="597,870" size="150,55" />
+  <webResource name="exit.jsp" path="/WEB-INF/web/base/exit.jsp" location="66,1045" size="150,55" />
+  <webResource name="exception.jsp" path="/WEB-INF/web/base/exception.jsp" location="573,345" size="150,55" />
+</Struts2Diagram>
+

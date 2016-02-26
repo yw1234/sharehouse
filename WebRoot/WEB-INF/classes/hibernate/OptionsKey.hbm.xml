@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name = "model.OptionsKey" table = "options_key">
+		<id name="key" type = "string" column = "resetKey">
+			<generator class="assigned"/>
+		</id>
+		<property name="email" type = "string" not-null="true">
+		</property>
+		<property name="uid" type = "long" not-null="true">
+		</property>
+		<property name="option" type = "string" not-null = "true" column = "opt"></property>
+		<property name="add_time" type = "java.util.Date" not-null = "true"></property>
+	</class>
+</hibernate-mapping>

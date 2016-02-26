@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="model.AtMessage" table="atMessage">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="userid" generated="never" lazy="false" name="userid"
+   not-null="true" type="long"/>
+  <property column="senderid" generated="never" lazy="false"
+   name="senderid" not-null="true" type="long"/>
+  <property column="content" generated="never" lazy="false"
+   name="content" not-null="true" type="string"/>
+  <property column="sendTime" generated="never" lazy="false"
+   length="500" name="sendTime" not-null="true" type="java.util.Date"/>
+   <property column="atShareId" generated="never" lazy="false"
+   name="atShareId"  type="long"/>
+    <property column="atType" generated="never" lazy="false"
+   name="atType" type="string"/>
+ </class>
+</hibernate-mapping>

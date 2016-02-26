@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name = "model.Circle" table = "circle">
+		<id name = "id" type = "long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" type = "string" not-null = "true" >
+		</property>
+		<property name="type" type = "string" not-null = "true" >
+		</property>
+		<property name="level" type = "integer">
+		</property>
+		<property name="info" type = "string">
+		</property>
+		<property name="location" type = "string"></property>
+		<property name="member_count" type = "integer" not-null = "true">
+		</property>
+		<property name="notice" type = "string">
+		</property>
+		<property name="concerned_number" type = "integer" not-null = "true"></property>
+		<property name="circle_ico" type = "string" not-null = "true"></property>
+		<property name="circle_pinyin" type = "string"></property>
+		<property name="circle_level" type = "string"></property>
+		<property name="sendNumber" type = "long"></property>
+		<property name="join_type" type = "string" not-null = "true"></property>
+		<property name="company_num" type = "integer" not-null = "true"></property>
+		<property name="create_time" type = "java.util.Date" not-null = "true"></property>
+		<property name="circle_belonged" type = "long"></property>
+		<property name="freeze" type = "string" ></property>
+		<property name="ispass" type = "string" ></property>
+		<property name="circle_count" type = "integer">
+		</property>
+		<property name="maxNumber" type = "integer"></property>
+		<property name="isUserCreate" type = "string"></property>
+		<set name = "joineduser" table = "user_circle" >
+			<key column="circleid"/>
+			<many-to-many class = "model.User" column = "userid"/>
+		</set>
+	</class>
+</hibernate-mapping>

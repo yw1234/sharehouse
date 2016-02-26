@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 配置数据源  -->
+	<bean id = "dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>sharehouse.ctovs8tgbl00.us-west-2.rds.amazonaws.com:3306/sharehouse</value>
+		</property>
+		<property name="username">
+			<value>SHAREHOUSE</value>
+		</property>
+		<property name="password">
+			<value>O0Z880e63b994Mbf013Sa98R2285D0w2</value>
+		</property>
+	</bean>
+	
+	<!--定义SessionFactory  -->
+	<bean id = "sessionFactory" class = "org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name = "dataSource">
+			<ref bean = "dataSource"/>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.connection.isolation">4</prop>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+				<prop key="hibernate.c3p0.max_size">20</prop>
+				<prop key="hibernate.c3p0.min_size">5</prop>
+				<prop key="hibernate.c3p0.timeout">50000</prop>
+				<prop key="hibernate.c3p0.max_statements">100</prop>
+				<prop key="hibernate.c3p0.idle_test_period">300</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<!-- 基本  -->
+				<value>classpath*:/hibernate/*.hbm.xml</value>
+				<!-- 活动 -->
+				<value>classpath*:/activity/hibernate/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+
+	
+	<!-- 基本的Dao类配置 -->
+
+	<bean id = "BaseDao" class = "dao.base.BaseDaoImpl">
+		<property name="sessionFactory">
+			<ref bean = "sessionFactory"/>
+		</property>
+	</bean>
+	<!-- 操作Dao类 -->
+	<bean id = "UserRegisterDao" class = "dao.user.UserRegisterDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserJoinDao" class = "dao.user.UserJoinDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserRemoveDao" class = "dao.user.UserRemoveDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserSendDao" class = "dao.user.UserSendDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserDeleteDao" class = "dao.user.UserDeleteDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserGetDao" class = "dao.user.UserGetDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserAddDao" class = "dao.user.UserAddDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	<bean id = "UserUpdateDao" class = "dao.user.UserUpdateDaoImpl">
+		<property name="sessionFactory" ref = "sessionFactory"/>
+	</bean>
+	
+	<!-- Service类 -->
+	<bean id = "MessageService" class = "services.message.MessageServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	<bean id = "ShareService" class = "services.share.ShareServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	<bean id = "AccountService" class = "services.account.AccountServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	<bean id = "CircleService" class = "services.circle.CircleServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	<bean id = "UserService" class = "services.user.UserServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	<bean id = "XMLService" class = "services.common.CommonServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 活动相关bean -->
+	<import resource="classpath:activity/activityBeans.xml"/>
+	<import resource="classpath:spring/*"/>
+</beans>

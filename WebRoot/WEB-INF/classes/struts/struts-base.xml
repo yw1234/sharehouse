@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<package name = "share.home" extends = "share-default" namespace = "/">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor name = "characterInterceptor" class = "action.interceptor.IllegalCharacterIntercptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 注册完成 -->
+		<action name = "register_complete" class = "action.user.UserRegister" method = "complete">
+			<interceptor-ref name = "characterInterceptor"/>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "fill_info" class = "action.user.UserRegister" method = "reg_complete">
+			<result name = "success">/WEB-INF/web/register/register_step2.jsp</result>
+			<result name = "error">/sharehouse.jsp</result>
+			<interceptor-ref name = "characterInterceptor"/>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<!-- 主界面 -->
+		<action name = "home" class = "action.PageInit" method = "home">
+			<result name = "success">/WEB-INF/web/home/home.jsp</result>
+			<result name = "error">/sharehouse.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "message" class = "action.PageInit" method = "message">
+			<result name = "success">/WEB-INF/web/home/message.jsp</result>
+			<interceptor-ref name = "characterInterceptor"/>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "friends" class = "action.PageInit" method = "myFriends">
+			<result name = "success">/WEB-INF/web/home/friends/myFriends.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "result" class = "action.PageInit" method = "result">
+			<result name = "success">/WEB-INF/web/home/result.jsp</result>
+			<result name = "error">/WEB-INF/web/home/friends/search.jsp</result>
+			<interceptor-ref name = "characterInterceptor"/>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<!-- 操作action -->
+		<action name = "exit*" class = "action.user.UserExit" method = "{1}">
+		</action>
+		<action name = "delete*" class = "action.user.UserDelete" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "get*" class = "action.user.UserGet" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "add*" class = "action.user.UserAdd" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "update*" class = "action.user.UserUpdate" method = "{1}">
+			<result name = "error">/WEB-INF/web/base/exception.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+	<!-- 用户 -->
+	<package name = "share.user" extends = "share.home" namespace = "/user">
+		<action name = "*" class = "action.PageInit" method = "user">
+			<result name = "success">/WEB-INF/web/home/user.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+	<!-- 好友 -->
+	<package name = "share.friends" extends = "share.home" namespace = "/friends">
+		<action name = "search" class = "action.PageInit" method = "searchFriends">
+			<result name = "success">/WEB-INF/web/home/friends/search.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+	<!-- 活动 -->
+	<package name = "share.activity" extends = "share.home" namespace = "/activity">
+		<action name = "" class = "action.PageInit" method = "activity">
+			<result name = "success">/WEB-INF/web/home/activity.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+	<!-- 公共信息 -->
+	<package name = "share.common" extends = "share-default" namespace = "/common">
+		<action name = "get*" class = "action.common.CommonService" method = "{1}">
+		</action>
+	</package>
+	<!-- 邮件提醒 -->
+	<package name = "share.email_tip" extends = "share-default" namespace = "/email_tip">
+		<action name = "*" class = "action.common.TipEmail" method = "{1}">
+		</action>
+	</package>
+	
+	<!-- 操作 -->
+	<package name = "share.send" extends = "share.home" namespace = "/send">
+		<action name = "*" class = "action.user.UserSend" method = "{1}">
+			<interceptor-ref name = "characterInterceptor"/>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+	<package name = "share.upload" extends = "share.home" namespace = "/upload">
+		<action name = "*" class = "action.user.UserUpload" method = "{1}">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "fileUpload">
+				<param name = "maximumSize">1024*1024*5</param>
+				<param name = "allowedTypes">
+					image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg
+				</param>
+			</interceptor-ref>
+		</action>
+	</package>
+</struts>

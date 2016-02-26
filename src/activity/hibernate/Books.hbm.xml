@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name = "activity.sellbook.model.Books" table = "activity_sellbook_books">
+		<id name = "id" type = "long">
+			<generator class="native"></generator>
+		</id>
+		<property name="userid" type = "long" not-null = "true"></property>
+		<property name="type" type = "string" not-null = "true">
+		</property>
+		<property name="name" type = "string" not-null = "true"></property>
+		<property name="content" type = "string"></property>
+		<property name="stock" type = "integer"></property>
+		<property name="scope" type = "string"></property>
+		<property name="price" type = "integer"></property>
+		<property name="old_degree" type = "string"></property>
+		<property name="add_time" type = "java.util.Date" not-null = "true"></property>
+		<property name="firstimg_url" type = "string" ></property>
+		<property name="lookedtimes" type = "integer"></property>
+		<property name="requiredtimes" type = "integer"></property>
+		<property name="realPrice" type = "integer"></property>
+	</class>
+</hibernate-mapping>

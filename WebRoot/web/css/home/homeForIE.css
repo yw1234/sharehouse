@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+.text{
+	line-height:22px;
+}
+.error_tip span{
+	color:white;
+	line-height:19px;
+	font-size:14px;
+}
+
+.submit_btn span{
+	line-height:22px;
+}
+
+#home_top{
+	background-color:#4a4a4a;
+}

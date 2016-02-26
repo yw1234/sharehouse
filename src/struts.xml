@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<constant name = "struts.i18n.encoding" value = "utf-8"/>
+	<constant name = "struts.locale" value = "zh_CN"/>
+	<constant name = "struts.objectFactory" value = "spring"/>
+	<constant name = "struts.devMode" value = "false"/>
+	<constant name = "struts.ognl.allowStaticMethodAccess" value = "true"/>
+	<constant name="struts.multipart.maxSize" value="5242880"/>
+	
+	<!-- 全局变量 -->
+	<package name = "share-default" extends = "struts-default">
+		<global-results>
+			<result type = "redirect" name = "tologin">/sharehouse.jsp</result>
+		</global-results>
+		<global-exception-mappings> 
+      		<exception-mapping exception="java.lang.Exception"
+			result="tologin"/> 
+		</global-exception-mappings>
+	</package>
+	
+	<!-- 未登录页面 -->
+	<include file = "struts/struts-index.xml"/>
+	<!-- 主要页面及信息 -->
+	<include file = "struts/struts-base.xml"/>
+	<!-- 详情 -->
+	<include file = "struts/struts-details.xml"/>
+	<!-- 消息 -->
+	<include file = "struts/struts-message.xml"/>
+	<!-- 账号控制 -->
+	<include file = "struts/struts-account.xml"/>
+	
+	<!-- 活动 -->
+	<include file = "activity/struts-activity.xml"/>
+	
+	<!-- 全局跳转 -->
+	<package name="default" extends="struts-default">
+	    <action name="**">      
+	      <result type = "redirect">/sharehouse.jsp</result>  
+		</action>
+	</package>
+	
+</struts>

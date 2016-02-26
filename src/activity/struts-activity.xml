@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<!-- 收书活动 -->
+	<package name = "share.activity.sell_book" extends = "share-default" namespace = "/activity/sell_book">
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor name = "sb_adminInterceptor" class = "activity.sellbook.AdminSessionInterceptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 页面 -->
+		<action name = "show" class = "activity.sellbook.action.BaseAction" method = "show">
+			<result name = "success">/WEB-INF/activity/sellbook/main.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "book" class = "activity.sellbook.action.BaseAction" method = "booking">
+			<result name = "success">/WEB-INF/activity/sellbook/main.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<!-- 主页面操作 -->
+		<action name = "getBookDetails" class = "activity.sellbook.action.BooksAction" method = "getBookDetails">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "getBooks" class = "activity.sellbook.action.BooksAction" method = "getBooks">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "booking" class = "activity.sellbook.action.BookingAction" method = "booking">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "cancelBooking" class = "activity.sellbook.action.BookingAction" method = "delete">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "showBigPicture" class = "activity.sellbook.action.BooksAction" method = "showBigPicture">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		
+		<!-- 管理员 -->
+		<action name = "admin" class = "activity.sellbook.action.AdminAction" method = "init">
+			<result name = "success">/WEB-INF/activity/sellbook/admin_main.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+	</package>
+	<package name = "share.activity.sell_book.admin" extends = "share.activity.sell_book" namespace = "/activity/sell_book/admin">
+		<!-- 管理员操作 -->
+		<action name = "send" class = "activity.sellbook.action.BooksAction" method = "send">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+		<action name = "upload" class = "activity.sellbook.action.BooksAction" method = "uploadBookImage">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "fileUpload">
+				<param name = "maximumSize">1024*1024*5</param>
+				<param name = "allowedTypes">
+					image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg
+				</param>
+			</interceptor-ref>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+		<action name = "complete" class = "activity.sellbook.action.BookingAction" method = "complete">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+		<action name = "deleteBooks" class = "activity.sellbook.action.BooksAction" method = "delete">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+		<action name = "updateBooks" class = "activity.sellbook.action.BooksAction" method = "update">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "sb_adminInterceptor"/>
+		</action>
+	</package>
+	
+	
+	<!-- 失物招领 -->
+	<package name = "share.activity.lost_found" extends = "share-default" namespace = "/activity/lost_found">
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor name = "adminInterceptor" class = "activity.lostfound.AdminSessionInterceptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 页面 -->
+		<action name = "show" class = "activity.lostfound.action.LostAction" method = "show">
+			<result name = "success">/WEB-INF/activity/lostfound/main.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<!-- 用户 -->
+		<action name = "getLost" class = "activity.lostfound.action.LostAction" method = "get">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "getDetail" class = "activity.lostfound.action.LostAction" method = "getDetail">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<!-- 管理员操作 -->
+		<action name = "send" class = "activity.lostfound.action.LostAction" method = "send">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "adminInterceptor"/>
+		</action>
+		<action name = "delete" class = "activity.lostfound.action.LostAction" method = "delete">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "adminInterceptor"/>
+		</action>
+		<action name = "upload" class = "activity.lostfound.action.LostAction" method = "upload">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+			<interceptor-ref name = "adminInterceptor"/>
+			<interceptor-ref name = "fileUpload">
+				<param name = "maximumSize">1024*1024*5</param>
+				<param name = "allowedTypes">
+					image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg
+				</param>
+			</interceptor-ref>
+		</action>
+	</package>
+	
+	<!-- 两校联动 -->
+	<package name = "share.activity.grad_carnival" extends = "share-default" namespace = "/activity/grad_carnival">
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<action name = "show">
+			<result name = "success">/WEB-INF/activity/gradcarnival/main.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+</struts>

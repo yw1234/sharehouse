@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="model.User" table="sh_user">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property generated="never" lazy="false" name="nickname" type="string"/>
+  <property generated="never" lazy="false" name="nickhead" type="string"/>
+  <property generated="never" lazy="false" name="password" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="realname" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="email" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="show_email" type="string"/>
+  <property generated="never" lazy="false" name="sex" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="age" type="integer"/>
+  <property generated="never" lazy="false" name="birthday" type="string"/>
+  <property generated="never" lazy="false" name="home" type="string"/>
+  <property generated="never" lazy="false" name="constellation" type="string"/>
+  <property generated="never" lazy="false" name="sx" type="string" column="xx"/>
+  <property generated="never" lazy="false" name="marry" type="string"/>
+  <property generated="never" lazy="false" name="blood" type="string"/>
+  <property generated="never" lazy="false" name="introduce" type="string"/>
+  <property generated="never" lazy="false" name="autologin"
+   not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="is_pass"
+   not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="phone" type="string"/>
+  <property generated="never" lazy="false" name="province" type="string"/>
+  <property generated="never" lazy="false" name="city" type="string"/>
+  <property generated="never" lazy="false" name="school" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="department" type="string"/>
+  <property generated="never" lazy="false" name="qq" type="string"/>
+  <property generated="never" lazy="false" name="open_id" type="string"/>
+  <property generated="never" lazy="false" name="type" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="head_ico"
+   not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="head_ico_big" type="string"/>
+  <property generated="never" lazy="false" name="freeze" not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="visted_times"
+   not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="add_time"
+   not-null="true" type="java.util.Date"/>
+  <property generated="never" lazy="false" name="register_ip"
+   not-null="true" type="string"/>
+  <property generated="never" lazy="false" name="lastlogin_ip" type="string"/>
+  <property generated="never" lazy="false" name="coin" not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="reputation"
+   not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="level" not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="friend_number"
+   not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="circle_number"
+   not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="lastlogin_time"
+   not-null="true" type="java.util.Date"/>
+  <property generated="never" lazy="false" name="continue_online"
+   not-null="true" type="integer"/>
+  <property generated="never" lazy="false" name="login_active" type="integer"/>
+  <property generated="never" lazy="false" name="send_active" type="integer"/>
+  <property generated="never" lazy="false" name="lastsendtime" type="java.util.Date"/>
+  <!-- 隐私 -->
+  <property generated="never" lazy="false" name="privacy_myPage" type="string"/>
+  <property generated="never" lazy="false" name="privacy_myCircleList" type="string"/>
+  <property generated="never" lazy="false" name="privacy_myUserList" type="string"/>
+  <property generated="never" lazy="false" name="privacy_myMsgList" type="string"/>
+  <property generated="never" lazy="false" name="privacy_useNickName" type="string"/>
+  <property generated="never" lazy="false" name="privacy_pInfo" type="string"/>
+  <property generated="never" lazy="false" name="privacy_pShowUser" type="string"/>
+  <property generated="never" lazy="false" name="privacy_pShowCircle" type="string"/>
+  <property generated="never" lazy="false" length="1" name="isNewUser" type="string"/>
+  <property generated="never" lazy="false" length="1"
+   name="registerByAPI" type="string"/>
+  <property generated="never" lazy="false" length="50" name="hs_year" type="string"/>
+  <property length="50" name="educational" type="string"/>
+  <property length="200" name="dorm" type="string"/>
+  <property length="100" name="campus" type="string"/>
+ </class>
+</hibernate-mapping>

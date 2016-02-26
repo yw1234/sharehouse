@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<package name = "share.index" extends = "share-default" namespace = "/">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name = "characterInterceptor" class = "action.interceptor.IllegalCharacterIntercptor"/>
+			<interceptor-stack name = "characterInterceptorStack">
+				<interceptor-ref name = "characterInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<action name = "index">
+			<result>/WEB-INF/web/web_index.jsp</result>
+		</action>
+		<action name = "register">
+			<result>/WEB-INF/web/register/register.jsp</result>
+		</action>
+		<action name = "RegisterValidate_email" class = "action.user.UserRegister" method = "email_validate">
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		<action name = "RegisterValidate_password" class = "action.user.UserRegister" method = "password_validate">
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		<action name = "RegisterValidate_name" class = "action.user.UserRegister" method = "name_validate">
+		</action>
+		<action name = "RegisterValidate_checkcode" class = "action.user.UserRegister" method = "checkcode_validate">
+		</action>
+		<action name = "register_getCommonUser" class = "action.user.UserRegister" method = "commonUser">
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		<action name = "login" class = "action.user.UserLogin" method = "judge">
+			<result type = "redirect" name = "success">${url}</result>
+			<result type = "redirect" name = "error">exitlogin</result>
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		<action name = "RegisterValidate_main" class = "action.user.UserRegister" method = "main_validate">
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		
+		<!-- 工具页 -->
+		<action name = "about">
+			<result>/WEB-INF/web/base/unlogin/about.jsp</result>
+		</action>
+		<action name = "agreement">
+			<result>/WEB-INF/web/base/unlogin/agreement.jsp</result>
+		</action>
+		<action name = "contactUs">
+			<result>/WEB-INF/web/base/unlogin/contactUs.jsp</result>
+		</action>
+		<action name = "lowVersion">
+			<result>/WEB-INF/web/base/unlogin/lowVersion.jsp</result>
+		</action>
+		<action name = "pwd_reset" class = "action.common.Reset" method = "reset">
+			<result name = "success">/WEB-INF/web/base/unlogin/pwd_reset.jsp</result>
+			<result name = "error">/sharehouse.jsp</result>
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+	</package>
+	<!-- 账户激活 -->
+	<package name = "share.index.activate" extends = "share.index" namespace = "/activate">
+		<action name = "do" class = "action.common.EmailValidation" method = "activate">
+			<result name = "success">/WEB-INF/web/base/unlogin/activate.jsp</result>
+			<result name = "error">/sharehouse.jsp</result>
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+		<action name = "send" class = "action.common.EmailValidation" method = "send">
+			<interceptor-ref name = "characterInterceptorStack"/>
+		</action>
+	</package>
+</struts>

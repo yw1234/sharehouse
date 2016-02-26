@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 收书相关bean -->
+	<bean id = "BooksService" class = "activity.sellbook.service.BooksServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 失物招领相关bean -->
+	<bean id = "LostService" class = "activity.lostfound.service.LostServiceImpl">
+		<property name="baseDao">
+			<ref bean = "BaseDao"/>
+		</property>
+	</bean>
+</beans>

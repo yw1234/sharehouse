@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+	
+<struts>
+	<!-- 人人登录 -->
+	<package name = "renren-default" extends = "share-default" namespace="/renren">
+		<!-- 拦截器 -->
+		<interceptors>
+			<interceptor name = "loginInterceptor" class = "action.interceptor.UserLoginInterceptor"/>
+			<interceptor-stack name = "userloginInterceptorStack">
+				<interceptor-ref name = "loginInterceptor"/>
+				<interceptor-ref name = "defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 登录 -->
+		<action name = "login" class = "action.account.renren.RenRenLogin" method = "login">
+			<result type = "redirect" name = "success">${request.contextPath}/home</result>
+			<result name = "error">/WEB-INF/web/register/registerError.jsp</result>
+		</action>
+		<!-- 绑定 -->
+		<action name = "bind" class = "action.account.renren.RenRenBind" method = "bind">
+			<result type = "redirect" name = "success">${request.contextPath}/home</result>
+			<result name = "error">/WEB-INF/web/register/registerError.jsp</result>
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+		<action name = "unbind" class = "action.account.renren.RenRenBind" method = "unbind">
+			<interceptor-ref name = "userloginInterceptorStack"/>
+		</action>
+	</package>
+</struts>
